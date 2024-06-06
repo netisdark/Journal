@@ -153,7 +153,7 @@
 </head>
 <body>
  <div class="container">
-  <h2>My journal</h2>
+  <h2 id="h2">My journal</h2>
   <div class="options" id="options">
   </div>
  </div>
@@ -294,8 +294,13 @@ load();
    
    function see(num){
     var options=document.getElementById('options');
-    options.innerHTML="<h2>"+localStorage. getItem("div["+num+"]")+"</h2><br>"+localStorage.getItem("sub["+num+"]")+"<br><button id='add' onclick='decline()'>Main Menu</button>";
+   var h2=document.getElementById('h2');
+  h2.innerHTML=localStorage. getItem("div["+num+"]"); options.innerHTML=localStorage.getItem("sub["+num+"]")+"<br><button id='add' onclick='decline()'>Main Menu</button>";
+    
+    var span=document.getElementById('span');
+    
+    span.style.display="none";
    }
  </script>
 </body>
-</html>
+ </html>
