@@ -1,24 +1,37 @@
 body {
     background-color: #f8f9fa;
+    color: #212529;
 }
 
-h1 {
-    margin-bottom: 20px;
+body.dark-mode {
+    background-color: #212529;
+    color: #f8f9fa;
 }
 
 .card {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
     margin-bottom: 20px;
 }
 
-#entries {
-    display: flex;
-    flex-direction: column;
+body.dark-mode .card {
+    background-color: #343a40;
+    border-color: #454d55;
 }
 
 .entry {
     background-color: #fff;
     border: 1px solid #dee2e6;
-    border-radius: .25rem;
     padding: 20px;
     margin-bottom: 10px;
+}
+
+body.dark-mode .entry {
+    background-color: #343a40;
+    border-color: #454d55;
+}
+
+.form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
 }
