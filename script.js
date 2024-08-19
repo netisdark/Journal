@@ -1,19 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('journal-form');
     const entriesDiv = document.getElementById('entries');
+    const darkModeToggle = document.getElementById('darkModeToggle');
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
 
         const date = document.getElementById('date').value;
-        const weather = document.getElementById('weather').value;
-        const mood = document.getElementById('mood').value;
+        const title = document.getElementById('title').value;
         const entry = document.getElementById('entry').value;
 
         const journalEntry = {
             date,
-            weather,
-            mood,
+            title,
             entry
         };
 
@@ -36,8 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entryDiv.className = 'entry';
             entryDiv.innerHTML = `
                 <h3>${entry.date}</h3>
-                <p><strong>Weather:</strong> ${entry.weather}</p>
-                <p><strong>Mood:</strong> ${entry.mood}</p>
+                <h4>${entry.title}</h4>
                 <pre>${entry.entry}</pre>
                 <button class="btn btn-danger" onclick="deleteEntry(${index})">Delete</button>
             `;
@@ -51,6 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('journalEntries', JSON.stringify(entries));
         displayEntries();
     };
+
+    darkModeToggle.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
+    });
 
     displayEntries();
 });
